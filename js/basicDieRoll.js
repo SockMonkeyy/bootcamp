@@ -1,4 +1,4 @@
-const die1 = Math.floor(Math.random() * 6) + 1; 
+const die1 = Math.floor(Math.random() * 6) + 1; // This includes the basics of math.floor and Math.random.
 const die2 = Math.floor(Math.random() * 6) + 1; 
 
 
