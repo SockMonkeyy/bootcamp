@@ -1,3 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>JS Craps</title>
+	<meta charset="utf-8">
+	
+	<style>
+	*{
+		font-family: 'Playfair Display', serif;
+		background: #f8f8f8;
+	}
+
+	h1, footer{
+		text-align: center;
+	}
+
+	table{
+		position: relative;
+		margin: auto;
+	}
+
+	table td{
+		border: 1px solid rgb(0, 0, 0);
+		width: 50%;
+		height: 70px;
+		text-align: center;
+		padding: .5rem;
+		
+	}
+
+	button{
+		color:#fff;
+		font-size: 16px;
+		padding: 10px 35px;
+		margin: 5px;
+		border:none;
+		background-color: #2888b4;
+		border-radius: 4px;
+	}
+
+	button:hover{
+		background-color: #0bb305;
+		
+	}
+
+	button:active{
+		background-color: #0bb305;
+		color: #e2e2e2;
+	}
+
+	#wins{
+		color: #69e056;
+	}
+
+	#losses{
+		color: #f32f2f;
+	}
+
+	#wins, #losses, #total, #die1, #die2{
+		font-weight: bold;
+		font-size: 1.2rem;
+	}
+
+	#show{
+		font-size: .9rem;
+	}
+	
+	.footer{
+		padding: 1.5rem;
+		margin: 0 auto;
+	}
+	</style>
+</head>
+<body>
+	<h1>Javascript Craps</h1>
+	<table>
+		<tr>
+			<td>
+				<div id="die1" class="die"></div>
+				<div id="die2" class="die"></div>
+		  </td>
+			<td class="total">
+				<small>You rolled&hellip;</small><br><var id="total"></var>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<p>Wins: <span id="wins">0</span> Losses: <span id="losses">0</span></p>
+			</td>
+			<td>
+				<div id="show" class="show">To start a game, roll the dice!<br></div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<button id="reset">Reset Game</button>
+			</td>
+			<td>
+				<button id="roll" class="roll">Roll the dice!</button>
+			</td>
+		</tr>
+	</table>
+	<footer class="footer">
+		<address>2022 &copy; The Odin Project/Udemy Bootcamp, by Wayne Richardson</address>
+	</footer>
+
+<script>
+
 let outcome = document.getElementById('total');
 let show = document.getElementById('show');
 let showWins = document.getElementById('wins');
@@ -98,3 +206,7 @@ function display(msg, c, w) {
 	show.innerHTML = message[msg];
 	c.innerHTML = w;
 }
+
+</script>
+</body>
+</html>
