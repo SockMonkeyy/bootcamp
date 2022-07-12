@@ -5,20 +5,41 @@ let showLosses = document.getElementById('losses');
 let point = 0;
 let wins = 0;
 let losses = 0;
-let message = {
-		natural:"That's a natural. You win!",
-		two:"That's snake eyes. You lose.",
-		three:"That's ace duece. You Lose.",
-		twelve:"That's box cars. You lose.",
-		point:"You hit your point. You win!",
-		seven:"That's a 7. Craps you lose.",
+let betDefault = 25;
+let playerInfo = {
+	name: null,
+	startBank: 1000,
+	gamesPlayed: 0,
+	amountBet: 0,
 };
+
+let message = {
+	natural: "That's a natural. You win!",
+	two: "That's snake eyes. You lose.",
+	three: "That's ace duece. You Lose.",
+	twelve: "That's box cars. You lose.",
+	point: "You hit your point. You win!",
+	seven: "That's a 7. Craps you lose.",
+};
+
+// Betting script
+
+let startNewRound = function () {
+	showPlayerInfo();
+	playerInfo.point = 0;
+	// allow betting again
+	//reset bet amount
+	enableButtons();
+	// clear betting area
+	playerInfo.amountBet = 0;
+	document.getElementById("current-bet").innerText = "$" + playerData.amountBet;
+}
 
 document.getElementById('roll').onclick = rollBoth;
 document.getElementById('reset').onclick = reset;
 
 
-function roll(dice){
+function roll(dice) {
 	var random = Math.floor((Math.random() * 6) + 1);
 	document.getElementById(dice).innerHTML = random;
 	return random;
@@ -45,49 +66,66 @@ function rollBoth() {
 }
 
 function determineOutcome(total) {
-	if(point == 0){
-		if(total == 7 || total == 11){
-			
+	if (point == 0) {
+		if (total == 7 || total == 11) {
+
 			wins++;
-			display("natural", showWins, wins);
+			// added betting code
+			display("natural", showWins, wins, playerInfo.wins);
+			player.bankroll = (playerInfo.amountBet * 2) + playerInfo.bankroll;
+			playerInfo.gamesPlayed++;
+			playerInfo.wins = playerData.wins + playerData.amountBet;
+			startNewRound()
+			return true;
 		}
-		else if(total == 2){
-			
+		else if (total == 2) {
+
 			losses++;
 			display("two", showLosses, losses);
 		}
-		else if(total == 3){
-			
+		else if (total == 3) {
+
 			losses++;
 			display("three", showLosses, losses);
 		}
-		else if(total == 12){
-			
+		else if (total == 12) {
+
 			losses++;
 			display("twelve", showLosses, losses);
 		}
-		else{
-			
+		else {
+
 			point = total;
-			
+
 			show.innerHTML = "Your point is " + point;
 		}
 	}
-	else{
-	
-		if(total == point){
-			
+	else {
+
+		if (total == point) {
+
 			wins++;
-			display("point", showWins, wins);
+			// added betting code
+			display("point", showWins, wins, playerInfo.wins);
+			player.bankroll = (playerInfo.amountBet * 2) + playerInfo.bankroll;
+			playerInfo.gamesPlayed++;
+			playerInfo.wins = playerData.wins + playerData.amountBet;
+			startNewRound()
 			point = 0;
+			return true;
+
 		}
 
-		
-		if(total == 7){
-			
+
+		if (total == 7) {
+
 			losses++;
 			display("seven", showLosses, losses);
+			playerInfo.losses = playerInfo.losses + playerInfo.amountBet;
+			startNewRound()
 			point = 0;
+			return true;
+			
 		}
 	}
 
