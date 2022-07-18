@@ -1,0 +1,83 @@
+<head>
+    <!DOCTYPE html>
+    <html>
+    <title>BootStrap Practice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="./BootStrapPractice.css">
+</head>
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light" id="page-top">
+    <div class="container-fluid">
+      <a href="#page-top"><img class="navbar-brand" src="../img/javascript-seeklogo.com.svg" alt="JavaScript Logo" style="width: 2rem; margin-left: 1.5rem;"></a>
+      <button class="navbar-toggler justify-content-end" style="margin-right: 2rem;" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<section class="container.fluid text-center" style="width: 90vw; margin: 0 auto; padding-top: 3rem;">
+    <div class="row justify-content-center" >
+        <div class="col-sm-3 border border-dark" style="margin: 1rem; padding-top: 1.5rem;">
+            <p id="demo"></p>
+        </div>
+        <div class="col-sm-4 border border-dark" style="margin: 1rem; padding-top: 1.5rem;">
+            <p id="demo2"></p>
+        </div>
+        <div class="col-sm-3 border border-dark" style="margin: 1rem; padding-top: 1.5rem;">
+            <p id="demo3"></p>
+        </div>
+    </div>
+</section>
+<section class="container.fluid text-center" style="width: 100vw; margin: 0 auto; padding-top: 3rem;">
+    <div class="row wrapper justify-content-center" >
+        <div class="col-sm-12" style="margin: 1rem;">
+        <img class="img-fluid p-0" style="padding: 1rem;" src="../img/Red Spade Icon Casino Night Casino Party Facebook Post(1).jpg" alt="placeholder">
+        </div>
+    </div>
+</section>
+<section class="container.fluid text-center" style="width: 90vw; margin: 0 auto; padding-top: 3rem;">
+    <div class="row justify-content-center" >
+        <div class="col-sm-3 border border-dark" style="margin: 1rem; padding-top: 1.5rem;">
+            <p id="demo"></p>
+        </div>
+        <div class="col-sm-4 border border-dark" style="margin: 1rem; padding-top: 1.5rem;">
+            <p id="demo2"></p>
+        </div>
+        <div class="col-sm-3 border border-dark" style="margin: 1rem; padding-top: 1.5rem;">
+            <p id="demo3"></p>
+        </div>
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+    crossorigin="anonymous"></script>
+<script>
+    const ShoeCatalog = [
+        "Jordan 1", "Jordan 2", "Jordan 3", "Jordan 4"
+    ]
+    ShoeCatalog.push("Jordan 5");
+    ShoeCatalog.push("Jordan 6")
+    let scLen = ShoeCatalog.length;
+    let text = ""
+    for (let i = 0; i < scLen; i++) {
+        text += ShoeCatalog[i] + "<br>";
+    }
+
+
+    document.getElementById("demo3").innerHTML = text;
+    document.getElementById("demo2").innerHTML = text;
+    document.getElementById("demo").innerHTML = text;
+</script>

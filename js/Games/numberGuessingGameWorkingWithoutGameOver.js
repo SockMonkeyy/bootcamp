@@ -1,13 +1,13 @@
-var playAgain = true;
+var keepLooking = true;
 let yes = keepLooking;
 let no = false;
+let attempts = 1;
+let welcome = prompt('Welcome Please Enter your name: ');
 
-
-
-while (input !== 'no' && input !== 'q') {
+while (keepLooking) {
     let remaining = 10;
-    let attempts = 1;
-    let welcome = prompt('Welcome Please Enter your name: ');
+    
+
     let maximum = parseInt(prompt(`Hi ${welcome}, Enter the maximum number`));
     while (!maximum) {
         maximum = parseInt(prompt('Enter a valid number!'));
@@ -21,7 +21,7 @@ while (input !== 'no' && input !== 'q') {
 
     while (parseInt(guess) !== targetNum) {
         if (guess === 'q') break;
-        if (remaining === 1) break;
+        if (attempts === 10) break;
         attempts++;
         remaining--;
         if (guess > targetNum) {
@@ -30,18 +30,22 @@ while (input !== 'no' && input !== 'q') {
             guess = prompt(`${guess} is Too Low! You have ${remaining} attempts remaining. Try Again:`);
         }
     }
-    if (remaining === 1) {
+    if (attempts === 10) {
         alert(`${welcome} GameOver!!!!! You've used all 10 attempts!!!!!! Your Number was ${myNum}`);
         let playAgain = prompt(`Play Again ${welcome}, yes or no?`);
         if (playAgain == 'no') {
             alert(`${welcome} thanks for playing!`)
-            break;
+            break; 
         }
+             
+
     }
     if (guess === 'q') {
         alert(`${welcome} thanks for playing!`)
+    } else {
+        alert(`${welcome}, You Got It!!! Your Number was ${myNum}. \Number of attempts: ${attempts}.`);
+        let playAgain = prompt(`Play Again ${welcome}, yes or no?`);
+        if (playAgain == 'no') break;
+        if (playAgain == 'yes');
     }
-    if (guess === targetNum)
-        alert(`${welcome}, You Got It!!! Your Number was ${myNum}. Number of attempts: ${attempts}.`);
-    let playAgain = prompt(`Play Again ${welcome}, yes or no?`);
 }
