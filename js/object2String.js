@@ -7,7 +7,7 @@ const restaurant = {
 
    name: 'Top Ramen',
    address: `${Math.floor(Math.random() * 100) + 1} Johnson Ave`,
-   city: 'Brooklyn',
+   city: 'Boston',
    state: 'NY',
    zipcode: '11206',
 }

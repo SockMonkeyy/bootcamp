@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fizz Project</title>
+</head>
+
+<body>
+
+    <div>
+        <input class="mb-4" placeholder="Enter a number" id="inputText">
+        <button class="col-sm-2" id="submitButton">Enter</button>
+        <p class="col-sm 8 h3 pt-3 pb-3 text-info" id="outputText1"></p>
+        <p class="col-sm 8 h3 pt-3 pb-3 text-info" id="outputText2"></p>
+        <p class="col-sm 8 h3 pt-3 pb-3 text-info" id="outputText3"></p>
+        <p class="col-sm 8 h3 pt-3 pb-3 text-info" id="outputText4"></p>
+    </div>
+
+    <script>
+        const inputText = document.getElementById('inputText');
+        const outputText = document.getElementById('outputText');
+        
+
+        function checkTarget() {
+            const answer = Number(inputText.value) 
+            for (let i = 1; i <= answer; i++) {
+                if (i % 3 === 0 && i % 5 === 0) {
+                    outputText1.textContent += `FizzBuzz, `;
+                }
+                else if (i % 3 === 0) {
+                    outputText2.textContent += `Fizz, `;
+                } else if (i % 5 === 0) {
+                    outputText3.textContent += `Buzz, `;
+                }
+                else {
+                    outputText4.textContent += (i + "," + " ");
+                    
+                }
+            }
+        }
+    
+
+        inputText.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                document.getElementById("submitButton").click();
+            }
+        });
+
+        submitButton.addEventListener('click', checkTarget);
+
+    </script>
+</body>
+
+</html>

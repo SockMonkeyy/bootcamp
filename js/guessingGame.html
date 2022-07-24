@@ -1,10 +1,15 @@
 <head>
     <meta charset="utf-8">
-    <title>Number guessing game</title>
+    <title class="head" >Number guessing game</title>
 
     <style>
         html {
             font-family: sans-serif;
+        }
+
+            h1 {
+            margin-top: 2rem;
+            color: ;
         }
 
         body {
@@ -20,6 +25,18 @@
         }
     </style>
 </head>
+<nav>
+    <h2 class="logo">Basic Numbers Guessing Game</h2>
+    <ul>
+        <li>
+            <a href="">Home</a>
+        </li>
+        <li>
+            <a href="./version1NumberGuessingGame.html">Games</a>
+        </li>
+    </ul>
+    <button class="cta-contact rounded">About Me</button>
+</nav>
 <h1>Number guessing game</h1>
 
 <p>We have selected a random number between 1 and 500. See if you can guess it in 10 turns or fewer. We'll tell you if
@@ -38,11 +55,11 @@
 <script>
     let randomNumber = Math.floor(Math.random() * 500) + 1;
     let targetNum = randomNumber;
-    const guesses = document.querySelector('.guesses');
+    /* const guesses = document.querySelector('.guesses'); */
     const lastResult = document.querySelector('.lastResult');
     const lowOrHi = document.querySelector('.lowOrHi');
-    const guessSubmit = document.querySelector('.guessSubmit');
-    const guessField = document.querySelector('.guessField');
+    /* const guessSubmit = document.querySelector('.guessSubmit'); */
+    /* const guessField = document.querySelector('.guessField'); */
     let guessCount = 1;
     let resetButton;
 

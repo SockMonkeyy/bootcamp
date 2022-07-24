@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Function library example</title>
+    <link rel="stylesheet" href="functionSytles">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body class="bg bg-dark text-light">
+
+    <div class="container">
+        <h1 class="row text-center mt-5 ml-1 mr-1 p-2s">Function library example:</h>
+            <input class="numberInput col-sm-6 row m-2" type="text" placeholder="enter a number">
+            <button id="myBtn" type="submit" style="" class="btn-xs col-sm submit">submit</button>
+    </div>
+    </section>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <h2>Math Functions</h2>
+                <p></p>
+                <p class="text1"></p>
+                <p class="text2"></p>
+                <p class="text3"></p>
+                <p class="text4"></p>
+                <p class="text5"></p>
+                <p class="text6"></p>
+                <p class="text7"></p>
+
+            </div>
+            <div class="col">
+                <h2>Event Functions</h2>
+                <p class="text8"></p>
+                <p class="text9"></p>
+                <p class="text10"></p>
+                <p class="text11"></p>
+            </div>
+            <div class="col">
+                <p class="col-sm 8 h3 pt-3 pb-3 text-info" id="outputText1"></p>
+                <p class="col-sm 8 h3 pt-3 pb-3 text-info" id="outputText2"></p>
+                <p class="col-sm 8 h3 pt-3 pb-3 text-info" id="outputText3"></p>
+                <p class="col-sm 8 h3 pt-3 pb-3 text-info" id="outputText4"></p>
+                
+            </div>
+            <canvas></canvas>
+        </div>
+    </div>
+
+    <script>
+        const input = document.querySelector('.numberInput');
+        const para = document.querySelector('p');
+        const text1 = document.querySelector('.text1');
+        const text2 = document.querySelector('.text2');
+        const text3 = document.querySelector('.text3');
+        const text4 = document.querySelector('.text4');
+        const text5 = document.querySelector('.text5');
+        const text6 = document.querySelector('.text6');
+        const text7 = document.querySelector('.text7');
+        const text8 = document.querySelector('.text8');
+        const text9 = document.querySelector('.text9');
+        const text10 = document.querySelector('.text10');
+        const text11 = document.querySelector('.text11');
+        const outputText1 = document.querySelector('.outputText1');
+        const outputText2 = document.querySelector('.outputText2');
+        const outputText3 = document.querySelector('.outputText3');
+        const outputText4 = document.querySelector('.outputText4');
+
+        function squared(num) {
+            return num * num;
+        }
+
+        function add7(num) {
+            return num + 7;
+        }
+
+        function cubed(num) {
+            return num * num * num;
+        }
+
+        function factorial(num) {
+            if (num < 0) return undefined;
+            if (num == 0) return 1;
+            let x = num - 1;
+            while (x > 1) {
+                num *= x;
+                x--;
+            }
+            return num;
+        }
+        function maxNumberSet(num) {
+            return num;
+        }
+
+        function randomNum(num) {
+            return Math.floor(Math.random() * num) + 1;
+        }
+
+        function rollDice() {
+            let die1 = Math.floor(Math.random() * 6) + 1;
+            let die2 = Math.floor(Math.random() * 6) + 1;
+            return die1 + die2;
+        }
+
+        function multiply(num, i) {
+            for (let i = 1; i <= 12; i++) {
+                x = num * i;
+                console.log(x);
+            }
+            return x;
+        }
+        /* Add Total of Array */
+        let arr = [1, 2, 3, 4, 5]
+
+
+        function sumArray() {
+            let total = 0;
+            for (let i = 0; i < arr.length; i++) {
+                total = total + arr[i];
+
+            }
+            console.log(total);
+            return total;
+        }
+        /* capitalize first letter of string */
+
+        let str1 = "RANDOM ALL CAPITALIZED TEXT IS NOW NORMAL!!!";
+        const str2 = str1.toLowerCase();
+
+        function capitalizeFirstLetter(str2) {
+
+            return str2.charAt(0).toUpperCase() + str2.slice(1);
+        }
+        console.log(capitalizeFirstLetter(str2));
+
+        /* RETURN LAST LETTER */
+        const str3 = "do you believe in magic?"
+        function lastLetter(str3) {
+            return str3.slice(-1);
+
+        }
+        /* Random Name from an Array */
+        const names = ['Wayne', 'Jordan', 'Ranisha', 'Jaiden', 'Jalia', 'Jeniya', 'Jax6', 'Kia']
+
+        function chooseName() {
+            const random = (names[(Math.floor(Math.random() * 8))])
+            return random;
+        }
+
+        /* Draw circles on a canvas */
+        const canvas = document.querySelector('canvas');
+        const ctx = canvas.getContext('2d');
+
+        let WIDTH = document.documentElement.clientWidth;
+        let HEIGHT = document.documentElement.clientHeight;
+
+        canvas.width = WIDTH;
+        canvas.height = HEIGHT;
+
+        function random(number) {
+            return Math.floor(Math.random() * number);
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, WIDTH, HEIGHT);
+            for (let i = 0; i < 100; i++) {
+                ctx.beginPath();
+                ctx.fillStyle = 'rgba(51,255,255,0.5)';
+                ctx.arc(random(WIDTH), random(HEIGHT), random(50), 0, 2 * Math.PI);
+                ctx.fill();
+            }
+        }
+
+        function checkTarget() {
+            const answer = Number(num.value)
+            for (let i = 1; i <= answer; i++) {
+                if (i % 3 === 0 && i % 5 === 0) {
+                    outputText1.textContent += `FizzBuzz, `;
+                }
+                else if (i % 3 === 0) {
+                    outputText2.textContent += `Fizz, `;
+                } else if (i % 5 === 0) {
+                    outputText3.textContent += `Buzz, `;
+                }
+                else {
+                    outputText4.textContent += (i + "," + " ");
+
+                }
+            }
+        }
+
+
+
+        input.addEventListener('change', () => {
+            const num = parseFloat(input.value);
+            if (isNaN(num)) {
+                para.textContent = 'You need to enter a number!';
+            } else {
+                para.textContent = `${num} squared is ${squared(num)}. `;
+                text1.textContent += `${num} cubed is ${cubed(num)}. `;
+                text2.textContent += `${num} factorial is ${factorial(num)}. `;
+                text3.textContent += `${num} plus 7 is ${add7(num)}. `;
+                text4.textContent = `Your random number from 1-${num} is ${randomNum(num)}. `;
+                text5.textContent = `Your dice roll is ${rollDice()} `;
+                text6.textContent = `Your maximum number is ${maxNumberSet(num)} `;
+                text7.textContent = `${num} x 12 is: ${multiply(num)}`;
+                text8.textContent = `The sum of array 1-5 is ${sumArray()}`;
+                text9.textContent = `Capitalize first letter in a string: ${capitalizeFirstLetter(str2)}     Original string was: RANDOM ALL CAPITALIZED TEXT IS NOW NORMAL!!!`;
+                text10.textContent = `Return end of string:
+                 Do you believe in magic? Last item: ${lastLetter(str3)}`;
+                text10.textContent = `Returns a random name from a array: ${chooseName()}`;
+                text11.textContent = `Returns random circles ${draw()}`;
+                outputText1.textContent = `${checkTarget()}`;
+
+            }
+        });
+
+
+    </script>
+    <script>
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
