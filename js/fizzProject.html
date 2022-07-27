@@ -13,10 +13,10 @@
     <div>
         <input class="mb-4" placeholder="Enter a number" id="inputText">
         <button class="col-sm-2" id="submitButton">Enter</button>
-        <p class="col-sm 8 h3 pt-3 pb-3 text-info" id="outputText1"></p>
-        <p class="col-sm 8 h3 pt-3 pb-3 text-info" id="outputText2"></p>
-        <p class="col-sm 8 h3 pt-3 pb-3 text-info" id="outputText3"></p>
-        <p class="col-sm 8 h3 pt-3 pb-3 text-info" id="outputText4"></p>
+        <p class="col-sm 8 h3 pt-3 pb-3 text-info" id="outputText1">Divisible(s) by 3 and 5: </p>
+        <p class="col-sm 8 h3 pt-3 pb-3 text-info" id="outputText2">Divisible by 3: </p>
+        <p class="col-sm 8 h3 pt-3 pb-3 text-info" id="outputText3">Divisible by 5: </p>
+        <p class="col-sm 8 h3 pt-3 pb-3 text-info" id="outputText4">Numbers not Divisible by Either: </p>
     </div>
 
     <script>
@@ -28,12 +28,12 @@
             const answer = Number(inputText.value) 
             for (let i = 1; i <= answer; i++) {
                 if (i % 3 === 0 && i % 5 === 0) {
-                    outputText1.textContent += `FizzBuzz, `;
+                    outputText1.textContent += `FizzBuzz (${(i)}), `;
                 }
                 else if (i % 3 === 0) {
-                    outputText2.textContent += `Fizz, `;
+                    outputText2.textContent += `Fizz (${(i)}), `;
                 } else if (i % 5 === 0) {
-                    outputText3.textContent += `Buzz, `;
+                    outputText3.textContent += `Buzz (${(i)}), `;
                 }
                 else {
                     outputText4.textContent += (i + "," + " ");
@@ -45,7 +45,6 @@
 
         inputText.addEventListener("keypress", function (event) {
             if (event.key === "Enter") {
-                event.preventDefault();
                 document.getElementById("submitButton").click();
             }
         });

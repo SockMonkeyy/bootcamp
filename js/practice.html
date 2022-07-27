@@ -1,39 +1,52 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ForEach</title>
 </head>
 
 <body>
-    <input type="text" id="inputText" placeholder="your inputText">
-    <button type="submit" id="myBtn">submit</button>
+
+    <script>const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+
+        numbers.forEach(function (el) {
+            if (el % 2 === 0) {
+                console.log(el)
+            }
+        })
+        
+        // for (let el of numbers) {
+        //     console.log(el);
+        // }
+        
+        const movies = [
+            {
+                title: 'Amadeus',
+                score: 99
+            },
+            {
+                title: 'Stand By Me',
+                score: 85
+            },
+            {
+                title: 'Parasite',
+                score: 95
+            },
+            {
+                title: 'Alien',
+                score: 90
+            }
+        ]
+        
+        movies.forEach(function (movie) {
+            console.log(`${movie.title} - ${movie.score}/100`)
+        })
+        
+        </script>
 </body>
-
-<script>
-    const inputText = document.getElementById('inputText');
-    const myBtn = document.getElementById('myBtn');
-
-    const sum = [1, 2, 3].reduce(add, 0); // with initial value to avoid when the array is empty
-
-    function add(accumulator, a) {
-        return accumulator + a;
-    }
-
-    console.log(sum);
-
-
-    inputText.addEventListener("keypress", function (event) {
-        if (event.key === "Enter") {
-            event.preventDefault();
-            document.getElementById("myBtn").click();
-        }
-    });
-
-    myBtn.addEventListener('click', Name);
-</script>
 
 </html>

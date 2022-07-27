@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MAO Calc</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+</head>
+
+<body class="container text-center bg-dark text-light mt-5">
+
+
+    <h1>Basic MAO Calculator</h1>
+    
+        <div class="row text-center pt-5">
+            <p class="col-md-4 h2">ARV:</p>
+            <input type="number" placeholder="200000" id="arv"  class="col-md-4">
+        </div>
+        <div class="row text-center pt-5">
+            <p class="col-md-4 h2">Realtor Commissions %:</p>
+            <input type="text" placeholder="7" value="" id="rc" class="col-md-4">
+        </div>
+        <div class="row text-center pt-5">
+            <p class="col-md-4 h2">Investor Commissions %:</p>
+            <input type="text" placeholder="15" value="" id="ic" class="col-md-4">
+        </div>
+        <div class="row text-center pt-5">
+            <p class="col-md-4 h2">Rehab estimate:</p>
+            <input type="number" placeholder="20000" value="" id="re" class="col-md-4">
+        </div>
+        <div class="row text-center pt-5">
+            <p class="col-md-4 h2">Assignment Fee:</p>
+            <input type="number" placeholder="10000" value="" id="af" class="col-md-4">
+        </div>
+        <div class="d-flex justify-content-center pt-5">
+            <button  onclick="Calculate()" class="col-md-2"  id="submitBtn">Submit</input>
+        </div>
+        <div class="d-flex justify-content-center pt-5">
+            <p>MAO Amount: $ </p>
+            <p class="textOutput" id="textOutput"></p>
+        </div>
+    
+    <script>
+   
+  function Calculate() {
+        var arv = document.getElementById('arv').value;
+        var rc = document.getElementById('rc').value;
+        var ic = document.getElementById('ic').value;
+        var re = document.getElementById("re").value;
+        var af = document.getElementById('af').value;
+        const mao = arv-((arv*(rc/100)) + (arv*(ic/100)))-re-af;
+        const textOutput = document.getElementById('textOutput')
+            console.log(mao);
+            
+            textOutput.textContent = `${mao}`;
+
+    }
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

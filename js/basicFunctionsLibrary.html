@@ -43,7 +43,7 @@
                 <p class="col-sm 8 h3 pt-3 pb-3 text-info" id="outputText2"></p>
                 <p class="col-sm 8 h3 pt-3 pb-3 text-info" id="outputText3"></p>
                 <p class="col-sm 8 h3 pt-3 pb-3 text-info" id="outputText4"></p>
-                
+
             </div>
             <canvas></canvas>
         </div>
@@ -191,6 +191,31 @@
             }
         }
 
+        /* Returning a function */
+        function ageCheck(min, max) {
+            return function (num) {
+                return num >= min && num <= max;
+            }
+        }
+        /* Basic Method Which I could have used to nest most of these functions in one :-)*/
+        const square = {
+            area(side) {
+                return side * side;
+            },
+            perimeter(side) {
+                return side * 4;
+            }
+        }
+
+        /* adding to a count of **eggs** */
+        const hen = {
+            name: 'Helen',
+            eggCount: 0,
+            layAnEgg() {
+                this.eggCount++;
+                return 'EGG';
+            }
+        }
 
 
         input.addEventListener('change', () => {

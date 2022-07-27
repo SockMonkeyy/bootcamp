@@ -1,17 +1,12 @@
+const arv = 300000;
+const rc = .07;
+const ic = .15;
+const re = 50000;
+const af = 5000;
 
-let answer = parseInt(prompt("Please enter the number you would like to FizzBuzz up to: ")); {
- 
-  for (let i = 1; i <= answer; i++) {
-    if (i % 3 === 0 && i % 5 === 0) {
-      console.log('FizzBuzz');
-    } 
-    else if (i % 3 ===0) {
-      console.log('Fizz');
-    } else if (i % 5 === 0) {
-      console.log('Buzz');
-    }
-     else {
-    console.log(i);
-  }
-}
+function arvBreakdown() {
+    const mao = (arv-((arv * rc) + (arv * ic) + re + af))
+    
+    console.log(mao);
+    return mao;
 }
