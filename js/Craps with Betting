@@ -89,17 +89,22 @@
         let playerInfo = {
             gamesPlayed: 0,
         };
+        
 
         function setBet() {
-            CurrentbetAmount = document.getElementById('inputText');
+            CurrentbetAmount = Number(document.getElementById('inputText').value);
+           if (CurrentbetAmount > bankRoll) {
+                alert(`Please enter an amount below ${bankRoll}`)
+            }
+    else{
             document.getElementById("roll").disabled = false;
             document.getElementById("reset").disabled = true;
             document.getElementById("roll").disabled = true;
             startNewRound()
             console.log(CurrentbetAmount);
-            return parseInt(CurrentbetAmount);
+            return (CurrentbetAmount);
         }
-
+    }
         let message = {
             natural: `That's a natural. You win!`,
             two: `That's snake eyes. You lose!`,
@@ -156,7 +161,6 @@
 
         function determineOutcome(total) {
             let startBank = 1000;
-            let CurrentbetAmount = document.getElementById('betAmount').value;
             if (point == 0) {
                 if (total == 7 || total == 11) {
                     bankRoll = startBank + CurrentbetAmount;
