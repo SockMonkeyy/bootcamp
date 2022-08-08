@@ -10,32 +10,20 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <header class="page-header">
-            <nav>
-                <h2 class="logo">Javascript Craps</h2>
-                <ul>
-                    <li>
-                        <a href="">Home</a>
-                    </li>
-                    <li>
-                        <a href="./version1NumberGuessingGame.html">Games</a>
-                    </li>
-                </ul>
-                <button class="cta-contact rounded">About Me</button>
-            </nav>
-        </header>
         <main class="page-main text-center align-items-center">
             <div>
-                <div class="play rounded text-wrapper text-center">
+                <div class="play mt-5 rounded text-wrapper text-center">
                     <h1>Let's Play</h1>
                     <p class="show" id="show">To start a game, roll the dice!</p>
+                </div>
+                <div class="d-flex justify-content-center pt-5">
+                    <p type="number" id="bankRoll" class="row-25 ml-3 mr-3">Your Starting Bank is $1000</p>
                 </div>
                 <div class="d-flex justify-content-center pt-5">
                     <input type="number" placeholder="Bet" id="inputText" class="row-25 ml-3 mr-3">
                 </div>
                 <div class="d-flex justify-content-center pt-2">
-                    <button onclick="setBet()" class="row-25 mb-2" id="submitBtn">Submit</input>
+                    <button onclick="setBet()" class="row-25 mb-2" id="submitBtn">Bet</input>
                 </div>
                 <div class="container" style="height: 100px;">
                     <div class="row">
@@ -76,7 +64,6 @@
     <script>
         document.getElementById("reset").disabled = true;
         document.getElementById("roll").disabled = true;
-        let startBank = 1000;
 
         let outcome = document.getElementById('total');
         let show = document.getElementById('show');
@@ -93,8 +80,8 @@
 
         function setBet() {
             CurrentbetAmount = Number(document.getElementById('inputText').value);
-           if (CurrentbetAmount > bankRoll) {
-                alert(`Please enter an amount below ${bankRoll}`)
+           if (CurrentbetAmount > bankRoll || CurrentbetAmount == NaN || CurrentbetAmount < 1) {
+                alert(`Please enter an amount above 0 below ${bankRoll}`)
             }
     else{
             document.getElementById("roll").disabled = false;
@@ -160,10 +147,11 @@
         }
 
         function determineOutcome(total) {
-            let startBank = 1000;
+            const bankOutput = document.getElementById('bankRoll')
+           
             if (point == 0) {
                 if (total == 7 || total == 11) {
-                    bankRoll = startBank + CurrentbetAmount;
+                    bankRoll = bankRoll + CurrentbetAmount;
                     wins++;
                     // added betting code
                     display("natural", showWins, wins, playerInfo.wins);
@@ -171,6 +159,7 @@
                     document.getElementById("submitBtn").disabled = false;
                     document.getElementById("reset").disabled = true;
                     document.getElementById("roll").disabled = true;
+                    bankOutput.textContent = `Your Bank is $${bankRoll}`;
                     console.log(bankRoll);
 
 
@@ -183,6 +172,7 @@
                     document.getElementById("reset").disabled = true;
                     document.getElementById("roll").disabled = true;
                     bankRoll = bankRoll - CurrentbetAmount;
+                    bankOutput.textContent =  `Your Bank is $${bankRoll}`;
                     console.log(bankRoll);
 
                 }
@@ -195,6 +185,7 @@
                     document.getElementById("roll").disabled = true;
                     bankRoll = bankRoll - CurrentbetAmount;
                     console.log(bankRoll);
+                    bankOutput.textContent =  `Your Bank is $${bankRoll}`;
 
 
 
@@ -208,8 +199,17 @@
                     document.getElementById("roll").disabled = true;
                     bankRoll = bankRoll - CurrentbetAmount;
                     console.log(bankRoll);
+                    bankOutput.textContent =  `Your Bank is $${bankRoll}`;
+                    
 
 
+                }
+                else if (bankRoll == 0){
+                    alert("Game Over!!!! You have $0!!! Please Refresh the page to Play Again")
+                    document.getElementById("submitBtn").disabled = true;
+                    document.getElementById("reset").disabled = true;
+                    document.getElementById("roll").disabled = true;
+                    bankOutput.textContent =  `Your Bank is $${bankRoll}`;
                 }
                 else {
 
@@ -231,6 +231,7 @@
                     document.getElementById("roll").disabled = true;
                     point = 0;
                     bankRoll = bankRoll + CurrentbetAmount;
+                    bankOutput.textContent =  `Your Bank is $${bankRoll}`;
                     console.log(bankRoll);
 
 
@@ -248,8 +249,16 @@
                     document.getElementById("submitBtn").disabled = false;
                     document.getElementById("reset").disabled = true;
                     document.getElementById("roll").disabled = true;
+                    bankOutput.textContent =  `Your Bank is $${bankRoll}`;
 
 
+                }
+                if (bankRoll == 0){
+                    alert("Game Over!!!! You have $0!!! Please Refresh the page to Play Again")
+                    document.getElementById("submitBtn").disabled = true;
+                    document.getElementById("reset").disabled = true;
+                    document.getElementById("roll").disabled = true;
+                    bankOutput.textContent =  `Your Bank is $${bankRoll}`;
                 }
             }
 
