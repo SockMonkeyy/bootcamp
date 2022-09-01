@@ -1,0 +1,344 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dancing+Script:wght@600&display=swap');
+
+body {
+    padding: 0;
+    margin: 0;
+
+    background-repeat: no-repeat;
+    background-blend-mode: lighten;
+    background: -moz-linear-gradient(-45deg, rgba(26, 188, 156, 1) 0%, rgb(232, 158, 48) 100%);
+    background: -webkit-linear-gradient(-45deg, rgba(26, 188, 156, 1) 0%, #e89e30 100%);
+    background: linear-gradient(135deg, rgb(173, 63, 149) 1%, rgba(232, 158, 48) 25%, rgba(26, 188, 156, 1) 50%, #e89e30 100%);
+}
+
+.mastHead {
+    height: 100vh;
+}
+
+.cursive {
+    font-family: 'Dancing Script', cursive;
+    padding-left: 12%;
+}
+
+.bebas{
+    font-family: 'Bebas Neue', cursive;
+}
+
+.textMast {
+    padding-right: 1rem;
+}
+
+.bdr-grd {
+    border-bottom: 1px solid;
+    border-image-slice: 1;
+    border-width: 1px;
+}
+
+.bdr-purp {
+    border-image-source: linear-gradient(135deg, #8c3fad, #e89e30, #25b195, rgb(140, 63, 173), #25b195);
+}
+
+.bg-dark1 {
+    background-color: rgba(0, 0, 0, 0);
+    border-bottom: .5px solid;
+    border-color: linear-gradient(rgba(26, 188, 156, 1) 0%, rgba(142, 68, 173, 1) 100%);
+}
+
+.btn-outline-success {
+    --bs-btn-color: #ffffff;
+    --bs-btn-border-color: #ffffff;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #bebebe;
+    --bs-btn-hover-border-color: #1abc9c;
+    --bs-btn-focus-shadow-rgb: 25, 135, 84;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #1abc9c;
+    --bs-btn-active-border-color: #1abc9c;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #1abc9c;
+    --bs-btn-disabled-bg: transparent;
+    --bs-btn-disabled-border-color: #1abc9c;
+    --bs-gradient: none;
+}
+
+
+.fade-in {
+    animation: fadeIn ease 5s;
+    -webkit-animation: fadeIn ease 5s;
+    -moz-animation: fadeIn ease 5s;
+    -o-animation: fadeIn ease 5s;
+    -ms-animation: fadeIn ease 5s;
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.icon-button {
+    background-color: white;
+    border-radius: 2.6rem;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1.3rem;
+    height: 2.6rem;
+    line-height: 2.6rem;
+    margin: 0 5px;
+    position: relative;
+    text-align: center;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 2.6rem;
+}
+
+/* Circle */
+.icon-button span {
+    border-radius: 0;
+    display: block;
+    height: 0;
+    left: 50%;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    width: 0;
+}
+
+.icon-button:hover span {
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 2.6rem;
+    margin: -1.3rem;
+}
+
+/* Icons */
+.icon-button i {
+    background: none;
+    color: #e89e30;
+    height: 2.6rem;
+    left: 0;
+    line-height: 2.6rem;
+    position: absolute;
+    top: 0;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    width: 2.6rem;
+    z-index: 10;
+}
+
+
+.icon-button:hover .fa-twitter,
+.icon-button:hover .fa-facebook,
+.icon-button:hover .fa-tumblr,
+.icon-button:hover .fa-instagram,
+.icon-button:hover .fa-youtube,
+.icon-button:hover .fa-pinterest {
+    color: rgb(0, 167, 245);
+}
+
+@media all and (max-width: 680px) {
+    .icon-button {
+        border-radius: 1.6rem;
+        font-size: 0.8rem;
+        height: 1.6rem;
+        line-height: 1.6rem;
+        width: 1.6rem;
+    }
+
+    .icon-button:hover span {
+        width: 1.6rem;
+        height: 1.6rem;
+        border-radius: 1.6rem;
+        margin: -0.8rem;
+    }
+
+    /* Icons */
+    .icon-button i {
+        height: 1.6rem;
+        line-height: 1.6rem;
+        width: 1.6rem;
+    }
+
+}
+
+.separator {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+
+}
+
+.separator1 {
+    position: absolute;
+    top: 5%;
+    left: 25%;
+    width: 600px;
+    height: 600px;
+    object-fit: contain;
+    z-index: 5;
+}
+
+@media all and (max-width: 768px) {
+    .separator1 {
+        position: absolute;
+        top: -40%;
+        left: 25%;
+    }
+
+}
+
+@media all and (max-width: 994px) {
+
+    .textMast {
+        padding-left: .5rem;
+        padding-right: .5rem;
+        text-align: center;
+    }
+    .cursive{
+        padding: 0;
+    }
+
+}
+
+@media (min-width:589px) and (max-width:768px) {
+    .separator1 {
+        position: absolute;
+        top: -20%;
+        left: 25%;
+    }
+}
+
+@media (min-width:451px) and (max-width:512px) {
+    .separator1 {
+        position: absolute;
+        top: -55%;
+        left: 25%;
+    }
+}
+
+@media all and (max-width: 457px) {
+    .separator1 {
+        position: absolute;
+        top: -70%;
+        left: 25%;
+    }
+}
+
+@media all and (max-width: 380px) {
+    .separator1 {
+        position: absolute;
+        top: -85%;
+        left: 25%;
+    }
+}
+
+@media (min-width:275px) and (max-width:350px) {
+    .separator1 {
+        position: absolute;
+        top: -105%;
+        left: 25%;
+    }
+}
+
+@media all and (max-width: 513) {
+    .separator1 {
+        position: absolute;
+        top: -25%;
+        left: 25%;
+    }
+}
+
+
+imgOver {
+    box-shadow: 0 0 8px 2px #333;
+}
+
+
+.avatar {
+
+
+    overflow: hidden;
+
+    transform: translatey(0px);
+    animation: float 5s ease-in-out infinite;
+
+}
+
+@keyframes float {
+    0% {
+
+        transform: translatey(0px);
+    }
+
+    50% {
+
+        transform: translatey(-20px);
+    }
+
+    100% {
+
+        transform: translatey(0px);
+    }
+}
+
+.parallax {
+    background: url('/ChowTime/Assets/railroadpark.jpg') repeat fixed 100%;
+    background-size: cover;
+    color: aliceblue;
+    height: auto;
+}

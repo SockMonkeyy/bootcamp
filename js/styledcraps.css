@@ -75,7 +75,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: auto;
+    height: 100vh;
     width: 100%;
     background: var(--main-purple-color) url() no-repeat center / cover;
     background-blend-mode: luminosity;
@@ -83,7 +83,6 @@ body {
     padding: 0;
     padding-left: 5%;
     padding-right: 5%;
-    overflow: hidden;
 }
 
 .col {

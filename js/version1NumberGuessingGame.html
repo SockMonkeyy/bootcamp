@@ -17,6 +17,7 @@
             max-height: auto;
             margin-top: 3rem;
             max-width: 100%vw;
+
         }
 
         h1 {
@@ -33,9 +34,16 @@
             opacity: .9;
             background-size: cover;
             width: auto;
-            margin-left: 4rem;
-            margin-right: 4rem;
-            height: 50%vh;
+            height: auto;
+            max-width: 800px;
+            margin: 0 auto;
+            margin-top: 5rem;
+            margin-left: 1.5rem;
+            margin-right: 1.5rem;
+        }
+
+        .offcanvas-title {
+            padding-left: 25%;
         }
 
         .lastResult {
@@ -44,9 +52,44 @@
         }
     </style>
 </head>
+<nav class="navbar navbar-dark bg-dark text-center fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">JS Numbers</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+            aria-controls="offcanvasDarkNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+            aria-labelledby="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Wayne's World</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://sockmonkeyy.github.io/crapsGame/">Craps</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://sockmonkeyy.github.io/basicquiz/">Basic Quiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://sockmonkeyy.github.io/QuickQuiz/">Web Dev Quiz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://sockmonkeyy.github.io/myRPS/">Rock, Paper, Scissors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://sockmonkeyy.github.io/blackJack/">BlackJack</a>
+                    </li>
+            </div>
+        </div>
+    </div>
+</nav>
 
-<body class="bg-dark bg text-center rounded" style="--bs-bg-opacity: .5;">
-    <div class="p-4 form col-sm-6 text-center mt-5" id="container"></div>
+<body class="bg-dark bg text-center rounded" style="--bs-bg-opacity: .5; margin: 0 auto;">
+    <div class="col-lg-12 p-4 form col-sm-6 text-center mt-5" id="container"></div>
     <div>
         <div class="h1 text-info text-center">Basic Number Guessing Game</div>
         <p class="p-3 text-info text-center h4">You have 10 attempts to guess the correct number. The maximum Number
@@ -56,7 +99,7 @@
     <p class="col-sm 8 h3 pt-3 pb-3 text-info" id="outputText">Enter a number below:</p>
     <p class="lowOrHi text-warning"></p>
     <p class="pb-3 targetNum text-warning"></p>
-    <input class="mb-4" placeholder="Enter a number" id="inputText">
+    <input class="mb-4" type="number" placeholder="Enter a number" id="inputText">
 
 
     <div class="flex-row align-middle">
@@ -84,7 +127,7 @@
         let guessCount = 1;
         let resetButton;
         let remaining = 10
-        
+
         setMax.textContent = `Your Maximum Number is ${maxiNum}`;
         function checkTarget() {
 
@@ -138,23 +181,24 @@
         });
         submitButton.addEventListener('click', checkTarget);
         playAgainButton.addEventListener('click', function () {
-           
+
             location.reload();
         }
         )
-    
+
 
         function setGameOver() {
             inputText.disabled = true;
             submitButton.disabled = true;
-            playAgainButton.addEventListener('keypress', function (event){
-            if (event.key === "Enter") {
-                document.getElementById("playAgainButton").click();
-                
+            playAgainButton.addEventListener('keypress', function (event) {
+                if (event.key === "Enter") {
+                    document.getElementById("playAgainButton").click();
+
+                }
+                location.reload();
             }
-            location.reload();
-        }
-        )};
+            )
+        };
 
 
 

@@ -1,73 +1,71 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-  </head>
-  <body>
-    <h1>MAO Calculator</h1>
-    
 
-<html>    
-  <form id="frm1" action="Calculate.html">
-    <table width="350px" border="1px">
-        <tr>
-            <th colspan="2"></th>
-        </tr>
-        <tr>
-            <td>ARV</td>
-            <td>
-                <input type="text" id="arv" placeholder=""></td>
-        </tr>
-        <tr>
-            <td>Realtor Commissions:</td>
-            <td>
-                <input type="text" id="rc" placeholder=""></td>
-        </tr>
-        <tr>
-          <td>Investor Commissions:</td>
-          <td>
-              <input type="text" id="ic" placeholder=""></td>
-      </tr>
-        <tr>
-            <td>Rehab Estimate:</td>
-            <td>
-                <input type="text" id="re" placeholder=""></td>
-        </tr>
-        <tr>
-          <td>Assignment Fee:</td>
-          <td>
-              <input type="text" id="af" placeholder=""></td>
-      </tr>
-        <tr>
-            <td>MAO:</td>
-            <td>
-                <p id="test"></p>
-                <p class="textOuput" id="textOutput"></p>
-            </td>
-        </tr>
-    </table>
-    <input type="button" onclick="Calculate()" value="calculate">
-</html>
-<script>
-   const textOuput = document.getElementById('textOutput')
-  function Calculate() {
-        var arv = document.getElementById('arv').value;
-        var rc = document.getElementById('rc').value;
-        var ic = document.getElementById('ic').value;
-        var re = document.getElementById("re").value;
-        var af = document.getElementById('af').value;
-        const mao = arv-((arv*rc) + (arv*ic))-re-af;
-            console.log(mao);
-            textOuput.textContent = `Your is MAO is $${mao}!`;
-            
-  
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Practice Grid</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 
-        document.getElementById("test").innerHTML = mao;
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
     }
-</script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-  </body>
+
+    .box{
+      border: 1px solid black;
+      margin: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  
+  <div class="container  pt-5">
+    <div class="row d-flex justify-content-center text-center ">
+      <div class="col-sm-4 box">
+        1 of 2
+      </div>
+      <div class="col-1 "></div>
+      <div class="col-sm-4 box">
+        2 of 2
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container text-center justify-content-center d-flex mt-4">
+    <div class="row ">
+      <div id="player" class="col-sm-4 box">
+       Player 1
+      </div>
+      <div class="col-sm-2 box deck" id="Deck">Deck</div>
+      <div class="col-sm-4 box" id="dealer">Dealer</div>
+      <div class="w-100 mb-5"></div>
+      <div id="jordan" class="col box row2">Column</div>
+      <div id="jeniya" class="col box row2">Column</div>
+    </div>
+  
+  </div>
+  <div class="container d-flex justify-content-center">
+  <button style="width: 150px; height:auto;" class="text-center rounded" id="btn">Click Me to Change BG Color</button>
+</div>
+<button id="button1" class="button1">click here</button>
+<button id="button1" class="button1">click here</button>
+<button id="buttons" class="button1">click here</button>
+<button id="buttons" class="button1">click here</button>
+<button id="buttons" class="button1">click here</button>
+<button id="buttons" class="button1">click here</button>
+
+<script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+</body>
+
+
+
+
 </html>

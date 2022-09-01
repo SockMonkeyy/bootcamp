@@ -12,18 +12,6 @@
 <body>
     <div class="wrapper">
         <header class="page-header">
-            <nav>
-                <h2 class="logo">Javascript Craps</h2>
-                <ul>
-                    <li>
-                        <a href="">Home</a>
-                    </li>
-                    <li>
-                        <a href="./version1NumberGuessingGame.html">Games</a>
-                    </li>
-                </ul>
-                <button class="cta-contact rounded">About Me</button>
-            </nav>
         </header>
         <main class="page-main text-center align-items-center">
             <div>
@@ -31,28 +19,27 @@
                     <h1>Let's Play</h1>
                     <p class="show" id="show">To start a game, roll the dice!</p>
                 </div>
-                <div class="container" style="height: 100px;">
-                    <div class="row">
-                        <div class="col rounded border border-danger">
-                            <div id="die1" class="die"></div>
-                            <div id="die2" class="die"></div>
+                    <div class="container" style="height: 100px;">
+                        <div class="row">
+                            <div class="col rounded border border-danger">
+                                <div id="die1" class="die"></div>
+                                <div id="die2" class="die"></div>
+                            </div>
+                            <div class="rounded col border border-danger">
+                                <small class="total">You rolled&hellip; </small><var id="total"></var>
+                            </div>
+                            <div class="col rounded border border-danger flex-grow">
+                                Wins: <span id="wins">0</span> Losses: <span id="losses">0</span>
+                            </div>
                         </div>
-                        <div class="rounded col border border-danger">
-                            <small class="total">You rolled&hellip; </small><var id="total"></var>
+                        <div class="rollbtn row">
+                            <button class="col p-1 rounded" id="reset">Reset Game</button>
+                            <button id="roll" class="rounded p-1 col roll">Roll the dice!</button>
                         </div>
-                        <div class="col rounded border border-danger flex-grow">
-                            Wins: <span id="wins">0</span> Losses: <span id="losses">0</span>
-                        </div>
+
                     </div>
-                    <div class="rollbtn row">
-                        <button class="col p-1 rounded" id="reset">Reset Game</button>
-                        <button id="roll" class="rounded p-1 col roll">Roll the dice!</button></div>
-                
-                </div>
         </main>
-        <footer class="page-footer text-center text-wrapper" >
-            <small>2022 &copy; The Odin Project/Udemy Bootcamp, by Wayne Richardson</small>
-        </footer>
+       
     </div>
     </div>
     <script src="./craps.js"></script>
