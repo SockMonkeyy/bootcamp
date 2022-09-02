@@ -94,53 +94,95 @@
         <div class="h1 text-info text-center">Basic Number Guessing Game</div>
         <p class="p-3 text-info text-center h4">You have 10 attempts to guess the correct number. The maximum Number
             range varies, so good luck!</p>
-        <p class="text-info" id="MaxNumOutput"></p>
+        <p class="text-info" style="font-size: 1.5rem;" id="MaxNumOutput"></p>
+        <p class="h3 pt-3 pb-3 text-info" id="lastGuess"></p>
     </div>
+
+    <p class="p-4 text-white">Enter Your Maximum Number or Leave Blank and Let Me Pick</p>
+    <input class="text-center mb-4" type="number" placeholder="Enter a number" id="inputText1">
+    <br>
+    <button onclick="maximumNumber()" class="col-sm-2" id="sbm">Set Max</button>
+
     <p class="col-sm 8 h3 pt-3 pb-3 text-info" id="outputText">Enter a number below:</p>
     <p class="lowOrHi text-warning"></p>
     <p class="pb-3 targetNum text-warning"></p>
-    <input class="mb-4" type="number" placeholder="Enter a number" id="inputText">
+
+    <input class="text-center mb-4" type="number" placeholder="Enter a number" id="inputText">
 
 
     <div class="flex-row align-middle">
         <button class="col-sm-2" id="submitButton">Enter</button>
-        <button class="col-sm-2 mb-3" id="playAgainButton">Reset</button>
+        <button class="col-sm-2 mb-3" id="reset">Reset</button>
     </div>
     <div class="text-center">
-        <p class="h3 pt-3 pb-3 text-info" id="lastGuess"></p>
+        <p class="h3 pt-3 pb-3 text-info" id="lastGuessInvalid"></p>
+
+
+
         <p class="outcome pt-3 pb-3 text-warning"></p>
 
     </div>
 
     <script>
-        let targetNum = (Math.ceil(Math.random() * 10) * Math.floor(Math.random() * 100) + 1);
-        let maxiNum = Math.ceil(targetNum / 100) * (100 + (5 * (Math.ceil(Math.random() * 10) + 1)));
+
+
+        const inputText1 = document.getElementById('inputText1');
         const setMax = document.getElementById('MaxNumOutput');
-        const setMaxButton = document.getElementById('setMaxButton');
+        const sbm = document.getElementById('sbm');
         const submitButton = document.getElementById('submitButton');
-        const playAgainButton = document.getElementById('playAgainButton');
+        const rstbtn = document.getElementById('reset');
         const outcome = document.querySelector('.outcome');
         const outputText = document.getElementById('outputText');
         const inputText = document.getElementById('inputText');
-        var lastGuess = document.getElementById('lastGuess');
+        const UserMax = document.getElementById('userMax')
+        let lastGuess = document.getElementById('lastGuess');
+        let lastGuessInvalid = document.getElementById('lastGuessInvalid');
         const lowOrHi = document.querySelector('.lowOrHi');
         let guessCount = 1;
         let resetButton;
-        let remaining = 10
+        let remaining = 10;
 
-        setMax.textContent = `Your Maximum Number is ${maxiNum}`;
+
+
+
+        document.getElementById("submitButton").disabled = true;
+
+        function maximumNumber() {
+            maxiNum = Math.ceil(1000 / 100) * (100 + (5 * (Math.ceil(Math.random() * 10) + 1)));
+            if (Number(inputText1.value) == 0 || Number(inputText1.value) == null) {
+                targetNum = (Math.ceil(Math.random() * 10) * Math.floor(Math.random() * 100) + 1);
+                PlayerMax = Math.ceil(targetNum / 100) * (100 + (5 * (Math.ceil(Math.random() * 10) + 1)));
+                console.log(PlayerMax, targetNum);
+
+            }
+            else {
+                PlayerMax = Number(inputText1.value)
+                targetNum = Math.ceil((PlayerMax / ((Math.floor((Math.random() * 10) + (Math.floor(Math.random()*6 +1)))))));
+                console.log(PlayerMax, targetNum);
+            }
+            checkTarget()
+            return (targetNum, PlayerMax)
+        }
+
+
         function checkTarget() {
-
+            document.getElementById("sbm").disabled = true;
+            document.getElementById("inputText1").disabled = true;
+            document.getElementById("submitButton").disabled = false;
+            setMax.textContent = `Your Maximum Number is ${PlayerMax}`;
             const userGuess = Number(inputText.value)
+            if (userGuess === 0 || userGuess === NaN || userGuess === null || userGuess < 1) {
+                lastGuessInvalid.textContent = `Please Enter a valid Number`
+
+                return false;
+            }
             if (guessCount === 1) {
                 lastGuess.textContent = `Previous guesses: `;
+                lastGuessInvalid.textContent = ``
             }
             lastGuess.textContent += userGuess + ', ';
             remaining--
-            if (userGuess < 1 || userGuess === 0) {
-                lastGuess.textContent = `Please Enter a valid Number`
-                return false;
-            }
+            lastGuessInvalid.textContent = ``
             if (userGuess === NaN) {
                 outcome.textContent = `Please Enter a number`
                 return false;
@@ -158,7 +200,7 @@
                 setGameOver();
             } else {
                 outcome.textContent = 'Wrong!';
-
+                lastGuessInvalid.textContent = ``
                 if (userGuess < targetNum) {
                     lowOrHi.textContent = `Last guess was too low! You have ${remaining} attempt(s) remaining`;
 
@@ -166,41 +208,60 @@
                     lowOrHi.textContent = `Last guess was too high! You have ${remaining} attempt(s) remaining`;
                 }
             }
-
-
-            console.log(targetNum, outcome.textContent, maxiNum);
+            console.log(targetNum, outcome.textContent, targetNum);
             guessCount++;
             inputText.value = '';
             inputText.focus();
+
         }
+
+
         inputText.addEventListener("keypress", function (event) {
             if (event.key === "Enter") {
                 event.preventDefault();
                 document.getElementById("submitButton").click();
             }
         });
-        submitButton.addEventListener('click', checkTarget);
-        playAgainButton.addEventListener('click', function () {
 
+        submitButton.addEventListener('click', checkTarget);
+        rstbtn.addEventListener('click', function () {
+            event.preventDefault();
             location.reload();
         }
         )
 
 
+        inputText1.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+
+                document.getElementById("sbm").click();
+                checkTarget();
+            }
+
+        });
+
+        rstbtn.addEventListener('click', function (event) {
+            if (event.key === "r") {
+
+                document.getElementById("reset").click();
+
+            }
+            location.reload();
+        })
+
+
         function setGameOver() {
             inputText.disabled = true;
             submitButton.disabled = true;
-            playAgainButton.addEventListener('keypress', function (event) {
+            rstbtn.addEventListener("keypress", function (event) {
                 if (event.key === "Enter") {
-                    document.getElementById("playAgainButton").click();
+
+                    document.getElementById("reset").click();
 
                 }
-                location.reload();
             }
             )
         };
-
-
 
 
     </script>
