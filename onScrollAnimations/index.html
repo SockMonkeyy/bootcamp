@@ -1,0 +1,432 @@
+<style>
+    :root {
+  --animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --animation-duration: 1s;
+}
+
+@-webkit-keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(25%);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(25%);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@-webkit-keyframes slideInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-25%);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes slideInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-25%);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@-webkit-keyframes slideInleft {
+  0% {
+    opacity: 0;
+    transform: translateX(25%);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes slideInleft {
+  0% {
+    opacity: 0;
+    transform: translateX(25%);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@-webkit-keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-25%);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-25%);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.75);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@-webkit-keyframes zoomReverseIn {
+  0% {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes zoomReverseIn {
+  0% {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@-webkit-keyframes flipInY {
+  0% {
+    opacity: 0;
+    transform: perspective(90vw) rotateY(67.5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes flipInY {
+  0% {
+    opacity: 0;
+    transform: perspective(90vw) rotateY(67.5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+[data-animation] {
+  opacity: 0;
+  -webkit-animation-timing-function: var(--animation-timing-function);
+          animation-timing-function: var(--animation-timing-function);
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-duration: var(--animation-duration);
+          animation-duration: var(--animation-duration);
+  will-change: transform, opacity;
+}
+
+.animations-disabled,
+.animations-disabled [data-animation] {
+  -webkit-animation: none !important;
+          animation: none !important;
+  opacity: 1 !important;
+}
+
+.slideInUp {
+  -webkit-animation-name: slideInUp;
+          animation-name: slideInUp;
+}
+
+.slideInDown {
+  -webkit-animation-name: slideInDown;
+          animation-name: slideInDown;
+}
+
+.slideInLeft {
+  -webkit-animation-name: slideInleft;
+          animation-name: slideInleft;
+}
+
+.slideInRight {
+  -webkit-animation-name: slideInRight;
+          animation-name: slideInRight;
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+}
+
+.zoomIn {
+  -webkit-animation-name: zoomIn;
+          animation-name: zoomIn;
+}
+
+.zoomReverseIn {
+  -webkit-animation-name: zoomReverseIn;
+          animation-name: zoomReverseIn;
+}
+
+.flipInY {
+  -webkit-animation-name: flipInY;
+          animation-name: flipInY;
+}
+
+.flipOutY {
+  -webkit-animation-name: flipInY;
+          animation-name: flipInY;
+  animation-direction: reverse;
+}
+
+* {
+  box-sizing: border-box;
+  line-height: calc(1em + 0.25rem);
+}
+
+html {
+  background: #000;
+  font: 18px/1.5 "Poppins", sans-serif;
+  letter-spacing: -0.1em;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: #8599ad;
+  font-weight: 200;
+}
+
+h1 {
+  width: 100%;
+  font-weight: 200;
+  text-align: center;
+  margin: 0 0 4rem;
+  font-size: 3rem;
+}
+
+b {
+  font-weight: 600;
+}
+
+header,
+section {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  height: 100vh;
+  justify-content: space-evenly;
+  align-items: center;
+  align-content: center;
+  padding: 3rem 1rem;
+}
+
+header {
+  background: radial-gradient(circle at top right, #e61a5e, #5e1ae6);
+  color: #fff;
+}
+
+header h1 {
+  margin: 0;
+  color: #fff;
+}
+
+header .title {
+  font-size: 5rem;
+}
+
+header .subtitle {
+  font-size: 4rem;
+}
+
+section {
+  background: #fff;
+}
+section:nth-child(odd) {
+  background: #f7f9fa;
+}
+
+.box {
+  width: 7rem;
+  height: 7rem;
+  margin: 1rem;
+  background: radial-gradient(circle at top right, #e61a5e, #5e1ae6);
+  border-radius: 1.5rem;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3) inset, 0 3px 9px rgba(0, 0, 0, 0.3);
+}
+</style>
+
+<header data-animation="fadeIn">
+    <h1>
+      <div class="title" data-animation="slideInDown" data-animation-delay=".75s"><b>Animate</b></div>
+      <div class="subtitle" data-animation="slideInUp" data-animation-delay="1.5s">On Scroll</div>
+    </h1>
+  </header>
+  
+  <section>
+    <h1><b>Slide</b> Animation</h1>
+    <div class="box" data-animation="slideInRight"></div>
+    <div class="box" data-animation="slideInUp" data-animation-delay=".3s"></div>
+    <div class="box" data-animation="slideInDown" data-animation-delay=".6s"></div>
+    <div class="box" data-animation="slideInLeft" data-animation-delay=".9s"></div>
+  </section>
+  
+  <section>
+    <h1><b>Zoom</b> Animation</h1>
+    <div class="box" data-animation="zoomIn"></div>
+    <div class="box" data-animation="zoomIn" data-animation-delay="300ms"></div>
+    <div class="box" data-animation="zoomIn" data-animation-delay="600ms"></div>
+  </section>
+  
+  <section>
+    <h1><b>Reverse Zoom</b> Animation</h1>
+    <div class="box" data-animation="zoomReverseIn"></div>
+    <div class="box" data-animation="zoomReverseIn" data-animation-delay="300ms"></div>
+    <div class="box" data-animation="zoomReverseIn" data-animation-delay="600ms"></div>
+  </section>
+  
+  <section>
+    <h1><b>Fade</b> Animation</h1>
+    <div class="box" data-animation="fadeIn"></div>
+    <div class="box" data-animation="fadeIn" data-animation-delay="300ms"></div>
+    <div class="box" data-animation="fadeIn" data-animation-delay="600ms"></div>
+  </section>
+  
+  <section>
+    <h1><b>Flip</b> Animation</h1>
+    <div class="box" data-animation="flipInY"></div>
+    <div class="box" data-animation="flipInY" data-animation-delay="300ms"></div>
+    <div class="box" data-animation="flipInY" data-animation-delay="600ms"></div>
+  </section>
+  <script>
+    const AnimateOnScroll = function ({ offset } = { offset: 10 }) {
+  // Define a dobra superior, inferior e laterais da tela
+  const windowTop = (offset * window.innerHeight) / 100;
+  const windowBottom = window.innerHeight - windowTop;
+  const windowLeft = 0;
+  const windowRight = window.innerWidth;
+
+  this.start = (element) => {
+    window.requestAnimationFrame(() => {
+      // Seta os atributos customizados
+      element.style.animationDelay = element.dataset.animationDelay;
+      element.style.animationDuration = element.dataset.animationDuration;
+
+      // Inicia a animacao setando a classe para animar
+      element.classList.add(element.dataset.animation);
+
+      // Seta o elemento como animado
+      element.dataset.animated = "true";
+    });
+  };
+
+  this.inViewport = (element) => {
+    // Obtem o boundingbox do elemento
+    const elementRect = element.getBoundingClientRect();
+    const elementTop =
+      elementRect.top + parseInt(element.dataset.animationOffset) ||
+      elementRect.top;
+    const elementBottom =
+      elementRect.bottom - parseInt(element.dataset.animationOffset) ||
+      elementRect.bottom;
+    const elementLeft = elementRect.left;
+    const elementRight = elementRect.right;
+
+    // Verifica se o elemento esta na tela
+    return (
+      elementTop <= windowBottom &&
+      elementBottom >= windowTop &&
+      elementLeft <= windowRight &&
+      elementRight >= windowLeft
+    );
+  };
+
+  // Percorre o array de elementos, verifica se o elemento está na tela e inicia animação
+  this.verifyElementsInViewport = (els = elements) => {
+    for (let i = 0, len = els.length; i < len; i++) {
+      // Passa para o proximo laço se o elemento ja estiver animado
+      if (els[i].dataset.animated) continue;
+
+      this.inViewport(els[i]) && this.start(els[i]);
+    }
+  };
+
+  // Obtem todos os elementos a serem animados
+  this.getElements = () =>
+    document.querySelectorAll("[data-animation]:not([data-animated])");
+
+  // Atualiza a lista de elementos a serem animados
+  this.update = () => {
+    elements = this.getElements();
+    elements && this.verifyElementsInViewport(elements);
+  };
+
+  // Inicia os eventos
+  window.addEventListener("load", this.update, false);
+  window.addEventListener(
+    "scroll",
+    () => this.verifyElementsInViewport(elements),
+    { passive: true }
+  );
+  window.addEventListener(
+    "resize",
+    () => this.verifyElementsInViewport(elements),
+    { passive: true }
+  );
+};
+
+// Initialize
+const options = {
+  offset: 15 // percentage of the window
+};
+
+const animation = new AnimateOnScroll(options);
+
+  </script>

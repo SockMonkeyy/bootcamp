@@ -17,9 +17,10 @@
 
   <body>
 
-    <section class="preview">
+    <section>
       <div>
         <p class="preview" id="preview"></p>
+        <p id="demo2"></p>
       </div>
 
     </section>
@@ -27,21 +28,25 @@
   </body>
   <script>
     
-    const names = ['Chris', 'Li Kang', 'Anne', 'Francesca', 'Mustafa', 'Tina', 'Bert', 'Jada']
+    const word = ['turkeys', 'pizza', 'chickens', 'bananas', 'tigerking', 'dramaqueen', 'lemon head', 'gingerbread']
     const para = document.createElement('p');
+    let sW = '';
 
     function chooseName(){ 
-   const random = (names[(Math.floor(Math.random() * 8))])
-   console.log(random);
-   document.write(random)
+   const random = ([(Math.floor(Math.random() * 8))]);
+
+   let removed = word.slice(random); 
+   document.getElementById("demo2").innerHTML = removed;
+   console.log(random, word);
     }
 chooseName()
-document.getElementById("preview").innerHTML = random;
+
     // Don't edit the code below here!
 
-    const section = document.querySelector('section');
+    // const section = document.querySelector('preview');
+   
 
-    section.appendChild(para);
+  
   </script>
 
 </html>

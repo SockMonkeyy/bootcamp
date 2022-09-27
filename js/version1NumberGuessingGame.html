@@ -149,7 +149,7 @@
 
         function maximumNumber() {
             maxiNum = Math.ceil(1000 / 100) * (100 + (5 * (Math.ceil(Math.random() * 10) + 1)));
-            if (Number(inputText1.value) == 0 || Number(inputText1.value) == null) {
+            if (Number(inputText1.value) <= 0 || Number(inputText1.value) == null) {
                 targetNum = (Math.ceil(Math.random() * 10) * Math.floor(Math.random() * 100) + 1);
                 PlayerMax = Math.ceil(targetNum / 100) * (100 + (5 * (Math.ceil(Math.random() * 10) + 1)));
                 console.log(PlayerMax, targetNum);
